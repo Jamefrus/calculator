@@ -12,7 +12,7 @@ public class ValidationServiceImpl implements ValidationService {
         } else if(object.getService() == Service.ESOTERIC){
             require("valueA in range [-100, +50] and negative valueB", isEsotericValue(object));
         } else if(object.getService() != Service.ANY){
-            throw new IllegalStateException("Unknown service: " + object.getService());
+            throw new IllegalArgumentException("Missing service: " + object.getService());
         }
     }
 

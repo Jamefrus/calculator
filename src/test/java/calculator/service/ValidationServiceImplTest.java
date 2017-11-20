@@ -112,4 +112,11 @@ public class ValidationServiceImplTest {
                 obj(22, -100034400, service)
         };
     }
+
+    @Test
+    public void failsOnNullService() throws Exception {
+        ComplexObject object = new ComplexObject();
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> validationService.validate(object));
+    }
 }
