@@ -1,4 +1,4 @@
-package calculator.impl;
+package calculator;
 
 import calculator.Calculator;
 import calculator.domain.ArithmeticOperation;
@@ -17,7 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.mockito.BDDMockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CalculatorAspectTest {
+public class CalculatorStatisticsTest {
 
     private static final ComplexObject OBJECT_A = new ComplexObject(4, 2);
     private static final ComplexObject OBJECT_B = new ComplexObject(2, 5);

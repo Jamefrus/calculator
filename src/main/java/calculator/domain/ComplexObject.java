@@ -44,15 +44,12 @@ public class ComplexObject {
 
         ComplexObject that = (ComplexObject) o;
 
-        if (valueA != that.valueA) return false;
-        return valueB == that.valueB;
+        return valueA == that.valueA && valueB == that.valueB;
     }
 
     @Override
     public int hashCode() {
-        int result = valueA;
-        result = 31 * result + valueB;
-        return result;
+        return 31 * valueA + valueB;
     }
 
     @Override
