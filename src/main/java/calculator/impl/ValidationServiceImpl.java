@@ -1,7 +1,8 @@
-package calculator.service;
+package calculator.impl;
 
 import calculator.domain.ComplexObject;
 import calculator.domain.Service;
+import calculator.service.ValidationService;
 
 public class ValidationServiceImpl implements ValidationService {
 

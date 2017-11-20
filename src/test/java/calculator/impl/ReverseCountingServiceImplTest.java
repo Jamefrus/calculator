@@ -1,14 +1,15 @@
-package calculator.service;
+package calculator.impl;
 
 import calculator.domain.ComplexObject;
+import calculator.service.CountingService;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static calculator.service.CountingServiceProvider.ALL_SETS;
-import static calculator.service.CountingServiceProvider.DIVIDABLE;
-import static calculator.service.CountingServiceProvider.UNDIVIDABLE;
+import static calculator.impl.CountingServiceProvider.ALL_SETS;
+import static calculator.impl.CountingServiceProvider.DIVIDABLE;
+import static calculator.impl.CountingServiceProvider.UNDIVIDABLE;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.BDDAssertions.then;
 

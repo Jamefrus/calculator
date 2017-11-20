@@ -1,6 +1,7 @@
-package calculator.service;
+package calculator.impl;
 
 import calculator.domain.ComplexObject;
+import calculator.service.CountingService;
 
 public class CountingServiceImpl implements CountingService {
 

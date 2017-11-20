@@ -1,7 +1,9 @@
-package calculator.service;
+package calculator.impl;
 
 import calculator.domain.ComplexObject;
 import calculator.domain.Service;
+import calculator.impl.ValidationServiceImpl;
+import calculator.service.ValidationService;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;
