@@ -12,14 +12,23 @@ public class CountingServiceImpl implements CountingService {
     }
 
     public ComplexObject subtract(ComplexObject param1, ComplexObject param2) {
-        return null;
+        ComplexObject result = new ComplexObject();
+        result.setValueA(param1.getValueA() - param2.getValueA());
+        result.setValueB(param1.getValueB() - param2.getValueB());
+        return result;
     }
 
     public ComplexObject multiply(ComplexObject param1, ComplexObject param2) {
-        return null;
+        ComplexObject result = new ComplexObject();
+        result.setValueA(param1.getValueA() * param2.getValueA());
+        result.setValueB(param1.getValueB() * param2.getValueB());
+        return result;
     }
 
     public ComplexObject divide(ComplexObject param1, ComplexObject param2) {
-        return null;
+        ComplexObject result = new ComplexObject();
+        result.setValueA(param1.getValueA() / param2.getValueA());
+        result.setValueB(param1.getValueB() / param2.getValueB());
+        return result;
     }
 }
