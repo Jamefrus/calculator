@@ -1,7 +1,9 @@
 package calculator;
 
 import calculator.domain.ComplexObject;
+import calculator.domain.Service;
 import calculator.service.CountingService;
+import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,4 +66,49 @@ public class CalculatorTest {
         Assert.assertEquals(EXPECTED_RESULT, result);
     }
 
+    @Test
+    public void validatesServiceFieldEquality_ADD() throws Exception {
+        ComplexObject objectA = new ComplexObject(3, 2);
+        objectA.setService(Service.ESOTERIC);
+        ComplexObject objectB = new ComplexObject(3, 2);
+        objectA.setService(Service.ANY);
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> calculator.add(objectA, objectB));
+    }
+
+
+    @Test
+    public void validatesServiceFieldEquality_SUBTRACT() throws Exception {
+        ComplexObject objectA = new ComplexObject(3, 2);
+        objectA.setService(Service.ESOTERIC);
+        ComplexObject objectB = new ComplexObject(3, 2);
+        objectA.setService(Service.ANY);
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> calculator.subtract(objectA, objectB));
+    }
+
+    @Test
+    public void validatesServiceFieldEquality_DIVIDE() throws Exception {
+        ComplexObject objectA = new ComplexObject(3, 2);
+        objectA.setService(Service.ESOTERIC);
+        ComplexObject objectB = new ComplexObject(3, 2);
+        objectA.setService(Service.ANY);
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> calculator.divide(objectA, objectB));
+    }
+
+
+    @Test
+    public void validatesServiceFieldEquality_MULTIPLY() throws Exception {
+        ComplexObject objectA = new ComplexObject(3, 2);
+        objectA.setService(Service.ESOTERIC);
+        ComplexObject objectB = new ComplexObject(3, 2);
+        objectA.setService(Service.ANY);
+
+        Assertions.assertThatIllegalArgumentException()
+                .isThrownBy(() -> calculator.multiply(objectA, objectB));
+    }
 }
