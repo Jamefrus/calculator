@@ -6,20 +6,21 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static calculator.service.CountingServiceProvider.ALL_SETS;
 import static calculator.service.CountingServiceProvider.DIVIDABLE;
 import static calculator.service.CountingServiceProvider.UNDIVIDABLE;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @RunWith(JUnitParamsRunner.class)
-public class CountingServiceImplTest {
-    private CountingService service = new CountingServiceImpl();
+public class ReverseCountingServiceImplTest {
+    private CountingService service = new ReverseCountingServiceImpl();
 
     @Test
-    @Parameters(source = CountingServiceProvider.class, method = CountingServiceProvider.ALL_SETS)
+    @Parameters(source = CountingServiceProvider.class, method = ALL_SETS)
     public void addsValues(ComplexObject objectA, ComplexObject objectB) {
-        int resultA = objectA.getValueA() + objectB.getValueA();
-        int resultB = objectA.getValueB() + objectB.getValueB();
+        int resultA = objectA.getValueA() + objectB.getValueB();
+        int resultB = objectA.getValueB() + objectB.getValueA();
 
         ComplexObject result = service.add(objectA, objectB);
 
@@ -29,10 +30,10 @@ public class CountingServiceImplTest {
     }
 
     @Test
-    @Parameters(source = CountingServiceProvider.class, method = CountingServiceProvider.ALL_SETS)
+    @Parameters(source = CountingServiceProvider.class, method = ALL_SETS)
     public void subtractsValues(ComplexObject objectA, ComplexObject objectB) throws Exception {
-        int resultA = objectA.getValueA() - objectB.getValueA();
-        int resultB = objectA.getValueB() - objectB.getValueB();
+        int resultA = objectA.getValueA() - objectB.getValueB();
+        int resultB = objectA.getValueB() - objectB.getValueA();
 
         ComplexObject result = service.subtract(objectA, objectB);
 
@@ -42,10 +43,10 @@ public class CountingServiceImplTest {
     }
 
     @Test
-    @Parameters(source = CountingServiceProvider.class, method = CountingServiceProvider.ALL_SETS)
+    @Parameters(source = CountingServiceProvider.class, method = ALL_SETS)
     public void multipliesValues(ComplexObject objectA, ComplexObject objectB) throws Exception {
-        int resultA = objectA.getValueA() * objectB.getValueA();
-        int resultB = objectA.getValueB() * objectB.getValueB();
+        int resultA = objectA.getValueA() * objectB.getValueB();
+        int resultB = objectA.getValueB() * objectB.getValueA();
 
         ComplexObject result = service.multiply(objectA, objectB);
 
@@ -57,8 +58,8 @@ public class CountingServiceImplTest {
     @Test
     @Parameters(source = CountingServiceProvider.class, method = DIVIDABLE)
     public void dividesValues(ComplexObject objectA, ComplexObject objectB) throws Exception {
-        int resultA = objectA.getValueA() / objectB.getValueA();
-        int resultB = objectA.getValueB() / objectB.getValueB();
+        int resultA = objectA.getValueA() / objectB.getValueB();
+        int resultB = objectA.getValueB() / objectB.getValueA();
 
         ComplexObject result = service.divide(objectA, objectB);
 
