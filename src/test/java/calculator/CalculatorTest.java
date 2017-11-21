@@ -4,7 +4,6 @@ import calculator.domain.ComplexObject;
 import calculator.domain.Service;
 import calculator.service.CountingService;
 import calculator.service.ValidationService;
-import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +11,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.BDDMockito.*;
-import static org.mockito.Matchers.same;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorTest {
@@ -77,7 +77,7 @@ public class CalculatorTest {
         ComplexObject objectB = new ComplexObject(3, 2);
         objectA.setService(Service.ANY);
 
-        Assertions.assertThatIllegalArgumentException()
+        assertThatIllegalArgumentException()
                 .isThrownBy(() -> calculator.add(objectA, objectB));
     }
 
@@ -89,7 +89,7 @@ public class CalculatorTest {
         ComplexObject objectB = new ComplexObject(3, 2);
         objectA.setService(Service.ANY);
 
-        Assertions.assertThatIllegalArgumentException()
+        assertThatIllegalArgumentException()
                 .isThrownBy(() -> calculator.subtract(objectA, objectB));
     }
 
@@ -100,7 +100,7 @@ public class CalculatorTest {
         ComplexObject objectB = new ComplexObject(3, 2);
         objectA.setService(Service.ANY);
 
-        Assertions.assertThatIllegalArgumentException()
+        assertThatIllegalArgumentException()
                 .isThrownBy(() -> calculator.divide(objectA, objectB));
     }
 
@@ -112,59 +112,59 @@ public class CalculatorTest {
         ComplexObject objectB = new ComplexObject(3, 2);
         objectA.setService(Service.ANY);
 
-        Assertions.assertThatIllegalArgumentException()
+        assertThatIllegalArgumentException()
                 .isThrownBy(() -> calculator.multiply(objectA, objectB));
     }
 
     @Test
     public void validatesByValidationService_ADD() throws Exception {
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_A));
-        Assertions.assertThatCode(() -> calculator.add(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.add(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_A);
 
         reset(validationService);
 
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_B));
-        Assertions.assertThatCode(() -> calculator.add(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.add(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_B);
     }
 
     @Test
     public void validatesByValidationService_SUBTRACT() throws Exception {
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_A));
-        Assertions.assertThatCode(() -> calculator.subtract(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.subtract(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_A);
 
         reset(validationService);
 
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_B));
-        Assertions.assertThatCode(() -> calculator.subtract(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.subtract(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_B);
     }
 
     @Test
     public void validatesByValidationService_DIVIDE() throws Exception {
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_A));
-        Assertions.assertThatCode(() -> calculator.divide(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.divide(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_A);
 
         reset(validationService);
 
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_B));
-        Assertions.assertThatCode(() -> calculator.divide(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.divide(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_B);
     }
 
     @Test
     public void validatesByValidationService_MULTIPLY() throws Exception {
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_A));
-        Assertions.assertThatCode(() -> calculator.multiply(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.multiply(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_A);
 
         reset(validationService);
 
         willThrow(UnsupportedOperationException.class).given(validationService).validate(same(OBJECT_B));
-        Assertions.assertThatCode(() -> calculator.multiply(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
+        assertThatThrownBy(() -> calculator.multiply(OBJECT_A, OBJECT_B)).isExactlyInstanceOf(UnsupportedOperationException.class);
         then(validationService).should().validate(OBJECT_B);
     }
 

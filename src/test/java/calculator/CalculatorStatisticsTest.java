@@ -1,20 +1,16 @@
 package calculator;
 
-import calculator.Calculator;
 import calculator.domain.ArithmeticOperation;
 import calculator.domain.ComplexObject;
 import calculator.service.CountingService;
 import calculator.service.StatisticsService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.then;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorStatisticsTest {

@@ -7,10 +7,8 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static calculator.impl.CountingServiceProvider.ALL_SETS;
-import static calculator.impl.CountingServiceProvider.DIVIDABLE;
-import static calculator.impl.CountingServiceProvider.UNDIVIDABLE;
-import static org.assertj.core.api.Assertions.assertThatCode;
+import static calculator.impl.CountingServiceProvider.*;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @RunWith(JUnitParamsRunner.class)
@@ -72,6 +70,6 @@ public class ReverseCountingServiceImplTest {
     @Test
     @Parameters(source = CountingServiceProvider.class, method = UNDIVIDABLE)
     public void failsForZeroDividing(ComplexObject objectA, ComplexObject objectB) throws Exception {
-        assertThatCode(() -> service.divide(objectA, objectB)).isInstanceOf(ArithmeticException.class);
+        assertThatThrownBy(() -> service.divide(objectA, objectB)).isInstanceOf(ArithmeticException.class);
     }
 }
