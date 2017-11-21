@@ -6,6 +6,10 @@ import calculator.service.CountingService;
 import calculator.service.StatisticsService;
 import calculator.service.ValidationService;
 
+import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
+
 public class Calculator {
 
     private CountingService countingService;
@@ -54,6 +58,8 @@ public class Calculator {
     }
 
     private void validate(ComplexObject param1, ComplexObject param2){
+        requireNonNull(param1, "param1 (dividable)");
+        requireNonNull(param2, "param2 (divider)");
         if(param1.getService() != param2.getService()){
             throw new IllegalArgumentException("Different Services");
         }
