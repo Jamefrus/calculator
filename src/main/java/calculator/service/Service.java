@@ -1,4 +1,6 @@
-package calculator.domain;
+package calculator.service;
+
+import calculator.domain.ComplexObject;
 
 public enum Service {
     ANY("any values") {

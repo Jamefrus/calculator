@@ -1,7 +1,7 @@
 package calculator;
 
 import calculator.domain.ComplexObject;
-import calculator.domain.Service;
+import calculator.service.Service;
 import calculator.service.CountingService;
 import calculator.service.ValidationService;
 import org.junit.Assert;

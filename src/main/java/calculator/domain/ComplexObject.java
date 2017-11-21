@@ -1,5 +1,7 @@
 package calculator.domain;
 
+import calculator.service.Service;
+
 public class ComplexObject {
     private int valueA;
     private int valueB;
@@ -11,6 +13,12 @@ public class ComplexObject {
     public ComplexObject(int valueA, int valueB) {
         this.valueA = valueA;
         this.valueB = valueB;
+    }
+
+    public ComplexObject(int valueA, int valueB, Service service) {
+        this.valueA = valueA;
+        this.valueB = valueB;
+        this.service = service;
     }
 
     public int getValueA() {
