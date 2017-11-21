@@ -1,7 +1,6 @@
 package calculator.service;
 
 import calculator.domain.ComplexObject;
-import calculator.service.Service;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
@@ -15,11 +14,11 @@ import static org.junit.Assert.assertTrue;
 public class ServiceTest {
 
     private static void shouldApprove(Service service, ComplexObject object) {
-        Assert.assertTrue(service.name() + " should approve " + object, service.isValid(object));
+        assertTrue(service.name() + " should approve " + object, service.isValid(object));
     }
 
     private static void shouldDisapprove(Service service, ComplexObject object) {
-        Assert.assertFalse(service.name() + " should disapprove " + object, service.isValid(object));
+        assertFalse(service.name() + " should disapprove " + object, service.isValid(object));
     }
 
     @RunWith(JUnitParamsRunner.class)
